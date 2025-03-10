@@ -3,7 +3,7 @@ import re
 import json
 from typing import Any, List, Dict, Optional
 import pandas as pd
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from groq import Groq
@@ -14,7 +14,7 @@ class SocialMediaPostAnalyzer:
         Initialize the analyzer with Groq API
         
         Args:
-            groq_api_key (str): Groq API key for Llama 70B
+            groq_api_key (str): Groq API key for Llama 3
         """
         self.client = Groq(api_key=groq_api_key)
         self.df = None
@@ -31,7 +31,7 @@ class SocialMediaPostAnalyzer:
     
     def generate_llm_insights(self, posts: List[str]) -> Dict[str, Any]:
         """
-        Generate advanced insights using Groq Llama 70B
+        Generate advanced insights using Groq Llama 3
         
         Args:
             posts (List[str]): List of social media posts to analyze
@@ -56,9 +56,8 @@ class SocialMediaPostAnalyzer:
         """
         
         try:
-            
             response = self.client.chat.completions.create(
-                model="llama2-70b-4096",
+                model="llama3-8b-8192",  # Updated model
                 response_format={"type": "json_object"},
                 messages=[
                     {
@@ -73,7 +72,6 @@ class SocialMediaPostAnalyzer:
                 max_tokens=1500,
                 temperature=0.7
             )
-            
             
             insights = json.loads(response.choices[0].message.content)
             return insights
@@ -114,7 +112,7 @@ class SocialMediaPostAnalyzer:
             
             try:
                 response = self.client.chat.completions.create(
-                    model="llama2-70b-4096",
+                    model="llama3-8b-8192",  # Updated model
                     messages=[
                         {"role": "system", "content": "You are a semantic similarity evaluator."},
                         {"role": "user", "content": prompt}
@@ -122,7 +120,6 @@ class SocialMediaPostAnalyzer:
                     max_tokens=10,
                     temperature=0.2
                 )
-                
                 
                 score_text = response.choices[0].message.content.strip()
                 try:
@@ -132,12 +129,10 @@ class SocialMediaPostAnalyzer:
             except Exception:
                 return 0.0
         
-        
         if self.df is not None:
             self.df['semantic_score'] = self.df['content'].apply(
                 lambda x: compute_semantic_score(x, query)
             )
-            
             
             return (self.df.nlargest(top_k, 'semantic_score')
                     [['content', 'user', 'timestamp', 'semantic_score']]
@@ -169,11 +164,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-GROQ_API_KEY = os.getenv('GROQ_API_KEY')
+GROQ_API_KEY = "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"
+if not GROQ_API_KEY:
+    raise ValueError("GROQ_API_KEY environment variable must be set")
+
 analyzer = SocialMediaPostAnalyzer(GROQ_API_KEY)
 
 try:
-    analyzer.load_dataset('social_media_data.jsonl')
+    analyzer.load_dataset('data.jsonl')
 except Exception as e:
     print(f"Error loading dataset: {e}")
 
@@ -224,6 +222,3 @@ async def health_check():
         "service": "Social Media LLM Analysis",
         "version": "1.0.0"
     }
-   
-if not GROQ_API_KEY:
-    raise ValueError("GROQ_API_KEY environment variable must be set")

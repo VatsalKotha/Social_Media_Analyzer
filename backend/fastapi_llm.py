@@ -1,7 +1,7 @@
 import os
 import re
 import json
-from typing import List, Dict, Optional
+from typing import Any, List, Dict, Optional
 import pandas as pd
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
@@ -224,10 +224,6 @@ async def health_check():
         "service": "Social Media LLM Analysis",
         "version": "1.0.0"
     }
-
-
-if __name__ == "__main__":
-    
-    if not GROQ_API_KEY:
-        raise ValueError("GROQ_API_KEY environment variable must be set")
-    
+   
+if not GROQ_API_KEY:
+    raise ValueError("GROQ_API_KEY environment variable must be set")

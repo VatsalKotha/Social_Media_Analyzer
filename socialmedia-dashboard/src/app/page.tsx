@@ -7,14 +7,11 @@ import Chatbot from "@/components/Chatbot";
 
 export default function Home() {
   return (
-    // <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8">
-    //   {/* <PostActivityChart />
-    //   <SubredditDistribution />
-    //   <ScoreDistribution />
-    //   <EngagementOverTime /> */}
-    //   <AIAnalyzer />
-    // </div>  
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8">
+      <PostActivityChart />
+      <SubredditDistribution />
+      <ScoreDistribution />
+      <EngagementOverTime />
       <AIAnalyzer />
       <Chatbot />
     </div>

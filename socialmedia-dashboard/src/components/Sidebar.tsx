@@ -44,26 +44,41 @@
 import Link from "next/link";
 
 const Sidebar = () => {
-    const scrollToSection = (sectionId: string) => {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-    };
-  
-    return (
-      <div className="w-64 min-h-screen bg-gray-900 text-white p-5 fixed">
-        <h2 className="text-xl font-bold mb-6 text-center">🚀 Social Media Dashboard</h2>
-        <nav className="space-y-4">
-          <button onClick={() => scrollToSection("dashboard")} className="block w-full text-left p-2 hover:bg-indigo-700 rounded">
-            📊 Dashboard
-          </button>
-          <button onClick={() => scrollToSection("ai-analyzer")} className="block w-full text-left p-2 hover:bg-indigo-700 rounded">
-            🧠 AI Analyzer
-          </button>
-          <button onClick={() => scrollToSection("chatbot")} className="block w-full text-left p-2 hover:bg-indigo-700 rounded">
-            💬 Chatbot
-          </button>
-        </nav>
-      </div>
-    );
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
-  
-  export default Sidebar;  
+
+  return (
+    <div className="w-64 min-h-screen bg-gray-900 text-white p-5 fixed">
+      <h2 className="text-xl font-bold mb-6 text-center">🚀 Social Media Dashboard</h2>
+      <nav className="space-y-4">
+        <button
+          onClick={() => scrollToSection("dashboard")}
+          className="block w-full text-left p-2 hover:bg-indigo-700 rounded"
+        >
+          📊 Dashboard
+        </button>
+        <button
+          onClick={() => scrollToSection("network-graph")} // ✅ Added Network Graph button
+          className="block w-full text-left p-2 hover:bg-indigo-700 rounded"
+        >
+          🔗 Network Graph
+        </button>
+        <button
+          onClick={() => scrollToSection("ai-analyzer")}
+          className="block w-full text-left p-2 hover:bg-indigo-700 rounded"
+        >
+          🧠 AI Analyzer
+        </button>
+        <button
+          onClick={() => scrollToSection("chatbot")}
+          className="block w-full text-left p-2 hover:bg-indigo-700 rounded"
+        >
+          💬 Chatbot
+        </button>
+      </nav>
+    </div>
+  );
+};
+
+export default Sidebar;

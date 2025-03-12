@@ -1,3 +1,26 @@
+// import PostActivityChart from "@/components/PostActivityChart";
+// import SubredditDistribution from "@/components/SubredditDistribution";
+// import ScoreDistribution from "@/components/ScoreDistribution";
+// import EngagementOverTime from "@/components/EngagementOverTime";
+// import AIAnalyzer from "@/components/AIAnalyzer";
+// import Chatbot from "@/components/Chatbot";
+
+// export default function Home() {
+//   return (
+//     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8">
+//       <PostActivityChart />
+//       <SubredditDistribution />
+//       <ScoreDistribution />
+//       <EngagementOverTime />
+//       <AIAnalyzer />
+//       <Chatbot />
+//     </div>  
+//   );
+// }
+
+
+"use client";
+import Sidebar from "@/components/Sidebar";
 import PostActivityChart from "@/components/PostActivityChart";
 import SubredditDistribution from "@/components/SubredditDistribution";
 import ScoreDistribution from "@/components/ScoreDistribution";
@@ -7,13 +30,30 @@ import Chatbot from "@/components/Chatbot";
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8">
-      <PostActivityChart />
-      <SubredditDistribution />
-      <ScoreDistribution />
-      <EngagementOverTime />
-      <AIAnalyzer />
-      <Chatbot />
+    <div className="flex">
+      {/* Sidebar always visible */}
+      <Sidebar />
+
+      {/* Main Content */}
+      <main className="ml-64 flex-1 p-6 space-y-12">
+        {/* Grid Layout Section */}
+        <div id="dashboard" className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <PostActivityChart />
+          <SubredditDistribution />
+          <ScoreDistribution />
+          <EngagementOverTime />
+        </div>
+
+        {/* AI Analyzer Section */}
+        <div id="ai-analyzer" className="mt-12">
+          <AIAnalyzer />
+        </div>
+
+        {/* Chatbot Section */}
+        <div id="chatbot" className="mt-12">
+          <Chatbot />
+        </div>
+      </main>
     </div>
   );
 }

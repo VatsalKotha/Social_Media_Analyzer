@@ -7,7 +7,7 @@ import os
 app = FastAPI()
 
 def generate_network():
-    data_file = "data.jsonl"
+    data_file = "processed_data.json"
     posts = []
 
     # Load JSONL data

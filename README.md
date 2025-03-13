@@ -20,7 +20,7 @@ An **AI-powered Next.js dashboard** that provides **insights, network visualizat
 
 ### **Backend (FastAPI + Groq + PyVis)**
 - **FastAPI** – High-performance API backend  
-- **Groq API** – Runs **Llama3-8B & Mistral AI** for AI insights  
+- **Groq API** – Runs **Llama3-8B** for AI insights  
 - **PyVis + NetworkX** – Generates interactive network graphs  
 
 ### **Deployment**

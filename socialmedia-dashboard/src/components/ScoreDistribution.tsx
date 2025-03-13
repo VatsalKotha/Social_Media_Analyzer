@@ -54,11 +54,11 @@ const ScoreDistribution = () => {
     <div className="p-4 bg-white rounded-lg shadow-md">
       <h2 className="text-lg font-semibold">🔥 Post Score Distribution</h2>
       <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={data}>
-          <XAxis dataKey="index" />
-          <YAxis />
+        <BarChart data={data} barSize={30}> {/* ✅ Increased barSize for thicker bars */}
+          <XAxis dataKey="index" stroke="black" strokeWidth={2} /> {/* ✅ Bold axis lines */}
+          <YAxis stroke="black" strokeWidth={2} /> {/* ✅ Bold Y-axis */}
           <Tooltip />
-          <Bar dataKey="score" fill="#2D8A59"> {/* ✅ Changed to darker green */}
+          <Bar dataKey="score" fill="#2D8A59" radius={[5, 5, 0, 0]}> {/* ✅ Slight rounding for aesthetics */}
             {data.map((_, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}

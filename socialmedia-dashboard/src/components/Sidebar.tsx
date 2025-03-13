@@ -41,8 +41,6 @@
 
 // export default Sidebar;
 
-import Link from "next/link";
-
 const Sidebar = () => {
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });

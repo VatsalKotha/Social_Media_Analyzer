@@ -44,7 +44,7 @@ const SubredditDistribution = () => {
     const [data, setData] = useState<{ subreddit: string; count: number }[]>([]);
 
     useEffect(() => {
-        axios.get("http://127.0.0.1:8000/subreddit-distribution")
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/subreddit-distribution`)
             .then((response) => setData(response.data))
             .catch((error) => console.error("Error fetching data:", error));
     }, []);

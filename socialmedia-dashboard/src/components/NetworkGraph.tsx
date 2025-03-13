@@ -34,7 +34,7 @@ const NetworkGraph = () => {
     <div className="p-6 flex flex-col items-center">
       <h1 className="text-2xl font-bold mb-4">🌐 Network Graph</h1>
       <iframe
-        src="http://127.0.0.1:8000/network-graph-html"
+        src={`${process.env.NEXT_PUBLIC_API_URL}/network-graph-html`}
         className="w-full max-w-5xl h-[600px] border border-gray-300 rounded-lg shadow-lg"
       ></iframe>
     </div>

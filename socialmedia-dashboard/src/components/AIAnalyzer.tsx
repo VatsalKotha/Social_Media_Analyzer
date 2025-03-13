@@ -19,7 +19,7 @@ const AIAnalyzer = () => {
     setInsights("");
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/generate-ai-insights", { query });
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/generate-ai-insights`, { query });
       setInsights(response.data.insights);
     } catch (error) {
       console.error("Error fetching AI insights:", error);

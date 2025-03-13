@@ -172,3 +172,7 @@ async def get_network_html():
         with open("network.html", "r", encoding="utf-8") as file:
             return HTMLResponse(content=file.read())
     return HTMLResponse(content="<h1>Error: Network graph not found</h1>", status_code=404)
+
+@app.get("/")
+async def root():
+    return {"message": "FastAPI Backend is Running!"}

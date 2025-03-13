@@ -96,7 +96,7 @@ const Chatbot = () => {
     setChatHistory((prev) => [...prev, { role: "user", content: message }]);
 
     try {
-      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/chatbot`, { message });
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_CHATBOT_API_URL}/chatbot`, { message });
       setChatHistory((prev) => [...prev, { role: "assistant", content: res.data.response }]);
     } catch (error) {
       console.error("Error fetching chatbot response:", error);

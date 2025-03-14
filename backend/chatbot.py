@@ -143,3 +143,7 @@ async def chatbot_response(query: ChatbotQuery):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/")
+async def root():
+    return {"message": "Chatbot Backend is Running!"}

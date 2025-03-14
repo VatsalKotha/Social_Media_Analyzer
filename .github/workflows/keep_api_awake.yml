@@ -1,0 +1,12 @@
+name: Keep API Awake  # You can rename this
+
+on:
+  schedule:
+    - cron: "*/5 * * * *" # Runs every 5 minutes
+
+jobs:
+  keep_awake:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render API
+        run: curl -s https://dashboar-api.onrender.com/

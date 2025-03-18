@@ -25,7 +25,7 @@ const CoordinatedPosts = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://127.0.0.1:8003/api/coordinated-posts?min_engagement=100")
+    fetch(`${process.env.NEXT_PUBLIC_CHATBOT_API_URL}/api/coordinated-posts?min_engagement=100`)
       .then((res) => res.json())
       .then((data: Post[]) => {
         setPosts(data);
@@ -38,7 +38,7 @@ const CoordinatedPosts = () => {
   }, []);
 
   const handleDownloadReport = async () => {
-    window.open("http://127.0.0.1:8003/api/generate-trends-pdf", "_blank");
+    window.open(`${process.env.NEXT_PUBLIC_CHATBOT_API_URL}/api/generate-trends-pdf`, "_blank");
   };
 
   // ✅ Pagination Logic

@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Render API
-        run: curl -s https://dashboar-api.onrender.com/
+        run: curl -s https://trending-posts.onrender.com

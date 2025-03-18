@@ -13,8 +13,8 @@ const AIExplanation = ({ endpoint, title }: { endpoint: string; title: string })
     setLoading(true);
     setOpen(true);
     try {
-      console.log(`Fetching from: http://127.0.0.1:8003${endpoint}`); // ✅ Debugging
-      const response = await axios.get(`http://127.0.0.1:8003${endpoint}`);
+      console.log(`Fetching from: ${process.env.NEXT_PUBLIC_POST_API_URL}${endpoint}`); // ✅ Debugging
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_POST_API_URL}${endpoint}`);
       console.log("Response Data:", response.data); // ✅ Log response
       setInsight(response.data.insight);
     } catch (error) {

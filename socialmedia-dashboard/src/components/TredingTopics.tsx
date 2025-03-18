@@ -224,7 +224,7 @@ const TopicTrends: React.FC = () => {
   );
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_CHATBOT_API_URL}/api/topic-trends`)
+    fetch(`${process.env.NEXT_PUBLIC_POST_API_URL}/api/topic-trends`)
       .then((res) => res.json())
       .then((data) => {
         if (data.message) {

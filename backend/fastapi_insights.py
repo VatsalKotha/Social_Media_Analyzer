@@ -212,3 +212,7 @@ async def generate_trends_pdf():
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error generating PDF: {str(e)}")
+
+@app.get("/")
+async def root():
+    return {"message": "Trending Posts Backend is Running!"}

@@ -30,6 +30,8 @@ import EngagementOverTime from "@/components/EngagementOverTime";
 import AIAnalyzer from "@/components/AIAnalyzer";
 import Chatbot from "@/components/Chatbot";
 import NetworkGraph from "@/components/NetworkGraph"; // ✅ Import NetworkGraph
+import TrendingTopics from "@/components/TredingTopics"; // ✅ Import TrendingTopics
+import CoordinatedPosts from "@/components/CoordinatedPostsTable";
 
 export default function Home() {
   return (
@@ -45,11 +47,20 @@ export default function Home() {
           <SubredditDistribution />
           <ScoreDistribution />
           <EngagementOverTime />
+          
         </div>
 
         {/* Network Graph Section */}
         <div id="network-graph" className="mt-12">
           <NetworkGraph />
+        </div>
+
+        <div id="trending-topics" className="mt-12">
+          <TrendingTopics />
+        </div>
+
+        <div id="coordinated-posts" className="mt-12">
+          <CoordinatedPosts />
         </div>
 
         {/* AI Analyzer Section */}

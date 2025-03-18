@@ -62,6 +62,18 @@ const Sidebar = () => {
         >
           🔗 Network Graph
         </button>
+          <button
+            onClick={() => scrollToSection("trending-topics")}
+            className="block w-full text-left p-2 hover:bg-indigo-700 rounded"
+          >
+          📈 Trending Topics
+          </button>
+          <button
+            onClick={() => scrollToSection("coordinated-posts")}
+            className="block w-full text-left p-2 hover:bg-indigo-700 rounded"
+          >
+          🤝 Coordinated Posts
+          </button>
         <button
           onClick={() => scrollToSection("ai-analyzer")}
           className="block w-full text-left p-2 hover:bg-indigo-700 rounded"
@@ -74,6 +86,7 @@ const Sidebar = () => {
         >
           💬 Chatbot
         </button>
+        
       </nav>
     </div>
   );

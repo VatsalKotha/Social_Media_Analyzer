@@ -133,7 +133,6 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -146,7 +145,6 @@ import {
   TrendingUp,
   ArrowLeft,
   ArrowRight,
-  Search,
 } from "lucide-react";
 
 // Define TypeScript type for a post
@@ -247,17 +245,17 @@ const CoordinatedPosts = () => {
           <p>Loading...</p>
         ) : (
           <>
-            <div className="flex flex-col md:flex-row gap-4 mb-4">
-              {/* 🔍 Search Input with Proper Sizing */}
+            <div className="flex flex-col md:flex-row gap-4 mb-4 items-center">
+              {/* 🔍 Search Input */}
               <input
                 type="text"
                 placeholder="Search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full md:w-1/2 p-2 border rounded-md"
+                className="w-full md:w-1/3 p-2 border rounded-md text-gray-700"
               />
 
-              {/* 🎯 Filter Dropdown with Proper Sizing */}
+              {/* 🎯 Filter Dropdown */}
               <Select
                 value={selectedSubreddit}
                 onValueChange={setSelectedSubreddit}
@@ -274,6 +272,14 @@ const CoordinatedPosts = () => {
                   ))}
                 </SelectContent>
               </Select>
+
+              {/* ⬇️ Download Button */}
+              <Button
+                onClick={handleDownloadReport}
+                className="flex items-center bg-indigo-500 hover:bg-indigo-700 text-white px-4 py-2 rounded-md"
+              >
+                <Download className="mr-2 w-5 h-5" /> Download PDF
+              </Button>
             </div>
 
             {/* Responsive Scrollable Table */}

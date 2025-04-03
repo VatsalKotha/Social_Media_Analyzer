@@ -1,12 +1,12 @@
-name: Keep Chabot API Awake  # Workflow name
+# name: Keep Chabot API Awake  # Workflow name
 
-on:
-  schedule:
-    - cron: "*/5 * * * *"  # Runs every 5 minutes
+# on:
+#   schedule:
+#     - cron: "*/5 * * * *"  # Runs every 5 minutes
 
-jobs:
-  keep_awake:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Ping Chatbot Render API
-        run: curl -s https://chatbot-axvr.onrender.com/
+# jobs:
+#   keep_awake:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Ping Chatbot Render API
+#         run: curl -s https://chatbot-axvr.onrender.com/

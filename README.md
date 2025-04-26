@@ -1,4 +1,3 @@
-# research-engineering-intern-assignment
 # 🚀 Social Media Analytics Dashboard  
 
 An **AI-powered Next.js dashboard** that provides **insights, network visualization, and chatbot assistance** for analyzing social media data using **FastAPI, Groq (Llama3-8B), and Recharts**.
